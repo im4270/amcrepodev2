@@ -1,0 +1,715 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+
+<head>
+  <title> AMC FINANCIAL SERVICES </title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Sites meta Data --> 
+  <meta name="application-name" content="AMC FINANCIAL SERVICES">
+  <meta name="author" content="thetork">
+  <meta name="keywords" content="AMC FINANCIAL SERVICES">
+  <meta name="description" content="AMC FINANCIAL SERVICES">
+
+  <!-- OG meta data -->
+  <meta property="og:title" content="AMC FINANCIAL SERVICES">
+  <meta property="og:site_name" content="Bitrader">
+
+  <meta property="og:description" content="AMC FINANCIAL SERVICES">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="./../assets/images/preloader.ico">
+
+
+
+  <link rel="shortcut icon" href="../assets/images/preloader.ico" type="image/x-icon">
+
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/aos.css">
+  <link rel="stylesheet" href="../assets/css/all.min.css">
+
+  <link rel="stylesheet" href="../assets/css/swiper-bundle.min.css">
+
+    <link rel="stylesheet" href="../ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+   
+
+  <!-- main css for template -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+  /**** modified by dev mb 15/02/2026****/
+  /* Container to center and space the bar */
+/* ================= SEARCH BAR ================= */
+
+.search-container-wrap {
+    display: flex;
+    justify-content: center;
+    margin: 30px auto;
+    padding: 0 15px;
+    position: relative;
+    z-index: 9999;
+}
+
+.hero-search-bar {
+    display: flex;
+    align-items: center;
+    /*background: rgba(255,255,255,0.05);*/
+    background: #0c263a;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 50px;
+    padding: 8px 8px 8px 25px;
+    width: 100%;
+    max-width: 600px;
+    position: relative;
+}
+
+.hero-search-bar:focus-within {
+    border-color: #00d094;
+    box-shadow: 0 0 15px rgba(0,208,148,0.2);
+}
+
+.hero-search-bar input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    width: 100%;
+    padding: 10px;
+}
+
+.search-btn {
+    background: #00d094;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.search-suggestions {
+    position: absolute;
+    top: 110%;
+    left: 0;
+    width: 100%;
+    background: rgba(15,23,42,0.98);
+    border-radius: 12px;
+    z-index: 99999;
+    max-height: 300px;
+    overflow-y: auto;
+    display: none;
+}
+
+.suggestion-item {
+    padding: 12px 20px;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+}
+
+.suggestion-item:hover {
+    background: rgba(0,208,148,0.1);
+}
+
+.symbol { color: #00d094; font-weight: 700; }
+.name { color: rgba(255,255,255,0.6); font-size: 0.85rem; }
+
+/* ================= STOCK CARDS ================= */
+
+.stock-update-container {
+    margin-top: 40px;
+}
+
+.stock-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.stock-card {
+    /*background: rgba(255,255,255,0.05);*/
+    background: #0c263a;
+    backdrop-filter: blur(12px);
+    border-radius: 16px;
+    padding: 20px;
+    width: 220px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.stock-card:hover {
+    transform: translateY(-5px);
+}
+
+.stock-name {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.6);
+}
+
+.stock-price {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+.stock-status {
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-weight: 600;
+    min-width: 80px;
+    text-align: center;
+}
+
+.status-up {
+    color: #00d094;
+    background: rgba(0,208,148,0.1);
+}
+
+.status-down {
+    color: #ff4d4d;
+    background: rgba(255,77,77,0.1);
+}
+
+/* Flash animation */
+@keyframes priceUpdate {
+    0% { opacity:1; }
+    50% { opacity:0.5; color:#00d094; }
+    100% { opacity:1; }
+}
+
+.price-flash {
+    animation: priceUpdate 0.5s ease-in-out;
+}
+
+        .contact-stack { position: fixed; bottom: 30px; right: 30px; display: flex; flex-direction: column; gap: 15px; z-index: 9999; }
+        .float-btn { width: 56px; height: 56px; border-radius: 18px; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; font-size: 24px; box-shadow: 0 10px 25px rgba(0,0,0,0.15); transition: var(--transition-smooth); backdrop-filter: blur(5px); }
+        .float-btn:hover { transform: scale(1.1) translateY(-5px); color: white; }
+        .btn-whatsapp { background: #25d366; border: 1px solid rgba(255,255,255,0.2); }
+        .btn-telegram { background: #0088cc; border: 1px solid rgba(255,255,255,0.2); }
+
+
+       /*  Learn More css */
+        .learnmore_header {
+            background-color: #0d1b2a;
+            color: #fff;
+            padding: 30px;
+            text-align: center;
+        }
+        .section_custom {
+            padding: 30px;
+            margin: 20px;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+      .section_custom h1,
+       .section_custom h2, 
+       .section_custom h3 
+       {
+            color: #0d1b2a;
+        }
+        .icon {
+            font-size: 20px;
+            margin-right: 8px;
+        }
+        .logo{
+                width: 240px !important;
+        }
+    .banner__content_h1{
+      color:#093d47!important;
+    }
+    .banner__content_p{
+      color:#093d47!important;
+    }
+    .header-section--style4{
+        background: #0c263a;
+    }
+  /*  .header-wrapper{
+        padding-block: 0;
+    }*/
+  </style>
+  <link rel="stylesheet" href="../assets/css/accessibility.css">
+</head>
+
+<body class="home-4">
+
+  <!-- ===============>> Preloader start here <<================= -->
+  <div class="preloader">
+    <img src="../assets/images/logo/preloader.png" alt="preloader icon">
+  </div>
+  <!-- ===============>> Preloader end here <<================= -->
+
+
+
+  <!-- ===============>> light&dark switch start here <<================= -->
+<!--   <div class="lightdark-switch">
+    <span class="switch-btn" id="btnSwitch"><img src="./../assets/images/icon/moon.svg" alt="light-dark-switchbtn"
+        class="swtich-icon"></span>
+  </div> -->
+  <!-- ===============>> light&dark switch start here <<================= -->
+
+
+
+
+
+  <!-- ===============>> Header section start here <<================= -->
+  <header class="header-section header-section--style4" style="top:0;">
+    <div class="header-bottom">
+      <div class="container">
+        <div class="header-wrapper">
+          <div class="logo">
+            <a href="../index.php.html">
+              <img src="../assets/images/logo/logo-dark.png" alt="logo">
+            </a>
+          </div>
+          <div class="menu-area">
+            <ul class="menu menu--style2">
+              <li>
+                <a href="../services.php.html">Services</a>
+              </li>
+              <li>
+                <a href="../about.php.html">About</a>
+              </li>
+              <li>
+                <a href="../contact.php.html">Contact Us</a>
+              </li>
+                <li>
+                <a href="../training.php.html">AMC Training</a>
+              </li>
+            </ul>
+
+          </div>
+          <div class="header-action">
+            <div class="menu-area">
+              <div class="header-btn">
+                <a href="https://wa.me/8420006286" class="trk-btn trk-btn--border trk-btn--primary">
+                  <span>LearnMore</span>
+                </a>
+              </div>
+
+              <!-- toggle icons -->
+              <div class="header-bar d-lg-none header-bar--style2">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- ===============>> Header section end here <<================= -->
+
+
+
+
+
+<style>
+
+/* Page Background */
+
+.page-body{
+font-family:"Segoe UI",Arial,sans-serif;
+
+background:#f4f6f9;
+color:#2b2b2b;
+
+}
+
+
+
+/* Main Container */
+
+.advisory-container{
+width:90%;
+max-width:1050px;
+margin:50px auto;
+background:#ffffff;
+padding:50px;
+border-radius:6px;
+box-shadow:0 4px 18px rgba(0,0,0,0.06);
+}
+
+
+/* Thumbnail */
+
+.advisory-thumbnail{
+width:100%;
+margin-bottom:30px;
+border-radius:6px;
+overflow:hidden;
+box-shadow:0 3px 12px rgba(0,0,0,0.08);
+margin-top:30px;
+}
+
+.advisory-thumbnail img{
+width:100%;
+display:block;
+}
+
+
+/* Main Title */
+
+.advisory-title{
+font-size:28px;
+font-weight:600;
+letter-spacing:.4px;
+margin-bottom:25px;
+position:relative;
+padding-left:20px;
+color:#111;
+}
+
+.advisory-title::before{
+content:"";
+position:absolute;
+left:0;
+top:6px;
+height:24px;
+width:5px;
+background:#00a86b;
+border-radius:3px;
+}
+
+
+
+/* Section Title */
+
+.advisory-section{
+font-size:22px;
+font-weight:600;
+margin-top:40px;
+margin-bottom:15px;
+position:relative;
+padding-bottom:10px;
+color:#1a1a1a;
+}
+
+.advisory-section::after{
+content:"";
+position:absolute;
+left:0;
+bottom:0;
+width:70px;
+height:3px;
+background:#00a86b;
+border-radius:2px;
+}
+
+
+
+/* Paragraph Styling */
+
+.advisory-container p{
+font-size:16px;
+margin-top:12px;
+color:#444;
+}
+
+
+
+/* Strong Styling */
+
+.advisory-container strong{
+color:#111;
+font-weight:600;
+}
+
+
+
+/* Spacing */
+
+.advisory-container p + p{
+margin-top:14px;
+}
+
+
+
+/* Responsive */
+
+@media(max-width:768px){
+
+.advisory-container{
+padding:30px 20px;
+margin:20px auto;
+}
+
+.advisory-title{
+font-size:24px;
+}
+
+.advisory-section{
+font-size:20px;
+}
+
+.advisory-container p{
+font-size:15px;
+}
+
+}
+
+</style>
+
+
+
+<body class="page-body mt-10">
+
+
+<div class="advisory-container">
+	<!-- Thumbnail -->
+
+	<div class="advisory-thumbnail">
+	<img src="../images/1.png" alt="AMC Financial Services Advisory">
+	</div>
+
+
+<div class="advisory-section">
+Financial Advisory of Trading
+</div>
+
+<p>
+<strong>AMC Financial Services</strong> provides financial advisory services for traders and investors in the stock market. Our advisory services are designed to help clients make informed trading decisions through proper market research and analysis.
+</p>
+
+<p>
+We provide trading recommendations based on technical analysis and market trends. Our goal is to assist traders in identifying potential trading opportunities while maintaining disciplined risk management.
+</p>
+
+
+
+<div class="advisory-section">
+Our Advisory Services
+</div>
+
+<p>
+<strong>Equity Trading Advisory</strong><br>
+We provide buy and sell recommendations in selected stocks based on market analysis. These recommendations are suitable for short-term and positional trading.
+</p>
+
+
+<p>
+<strong>Intraday Trading Advisory</strong><br>
+Intraday trading calls are provided for traders who want to trade within the same trading day. These calls are based on technical indicators and price movements.
+</p>
+
+
+<p>
+<strong>Options Trading Advisory</strong><br>
+We provide options trading strategies including Call and Put recommendations for traders interested in derivative trading.
+</p>
+
+
+<p>
+<strong>Market Analysis</strong><br>
+Regular market analysis is provided to help traders understand market direction and trends.
+</p>
+
+
+
+<div class="advisory-section">
+Our Approach
+</div>
+
+<p>
+Our trading advisory is based on disciplined analysis and risk management. We focus on identifying opportunities with proper entry and exit levels.
+</p>
+
+<p>
+<strong>Technical Analysis</strong> is used to study price movements and chart patterns.
+</p>
+
+<p>
+<strong>Risk Management</strong> is an important part of our advisory services to help control trading risk.
+</p>
+
+
+
+<div class="advisory-section">
+Disclaimer
+</div>
+
+<p>
+Trading in stock market involves financial risk. Clients are advised to consider their financial condition before trading.
+</p>
+
+<p>
+<strong>AMC Financial Services</strong> does not guarantee any fixed returns. All trading recommendations are based on market analysis.
+</p>
+
+
+</div>
+
+  <!-- ===============>> footer start here <<================= -->
+  <footer class="footer ">
+    <div class="container">
+      <div class="footer__wrapper">
+        <div class="footer__top footer__top--style1">
+          <div class="row gy-5 gx-4">
+            <div class="col-md-6">
+              <div class="footer__about">
+                <a href="index.php" class="footer__about-logo"><img src="../assets/images/logo/logo-dark.png" alt="Logo"></a>
+              </div>
+            </div>
+            <div class="col-md-2 col-sm-4 col-6">
+              <div class="footer__links">
+                <div class="footer__links-tittle">
+                  <h6>Quick links</h6>
+                </div>
+                <div class="footer__links-content">
+                  <ul class="footer__linklist">
+                    <li class="footer__linklist-item"> <a href="../about.php.html">About Us</a>
+                    </li>
+                    <li class="footer__linklist-item"> <a href="../services.php.html">Services</a> </li>
+                     <li class="footer__linklist-item"> <a href="../disclosure.php.html">Disclosure</a> </li>
+                  </ul>
+                </div>
+              </div>
+
+            </div>
+            <div class="col-md-2 col-sm-4 col-6">
+              <div class="footer__links">
+                <div class="footer__links-tittle">
+                  <h6>Legal</h6>
+                </div>
+                <div class="footer__links-content">
+                  <ul class="footer__linklist">
+                    <li class="footer__linklist-item"> <a href="../terms.php.html">Terms & Conditions</a>
+                    </li>
+                    <li class="footer__linklist-item"> <a href="../privacy.php.html">Privacy Policy</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+            </div>
+
+              <div class="col-md-2 col-sm-4 col-4">
+              <div class="footer__links">
+                <div class="footer__links-tittle">
+                  <h6>Support</h6>
+                </div>
+                <div class="footer__links-content">
+                  <ul class="footer__linklist">
+                    <li class="footer__linklist-item"> <a href="../grievances.php.html">Grievance Redressal</a>
+                    </li>
+                    <li class="footer__linklist-item"> <a href="../investor-charter.php.html">Investor Charter</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+        <div class="footer__bottom">
+          <div class="footer__end">
+            <div class="footer__end-copyright">
+              <p class=" mb-0">© 2026 All Rights Reserved By AMC Financial Services </p>
+            </div>
+            <div>
+              <ul class="social">
+                <li class="social__item">
+                  <a href="https://www.facebook.com/share/1DS9ShEda9/" class="social__link social__link--style22" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                </li>
+                <li class="social__item">
+                  <a href="https://www.instagram.com/amcfinancialservices?igsh=NnIwbmVvbWtyem5j" class="social__link social__link--style22 " aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                </li>
+                <li class="social__item">
+                  <a href="https://www.youtube.com/@AMCCAPITAL500" class="social__link social__link--style22" aria-label="YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer__shape">
+      <span class="footer__shape-item footer__shape-item--1"><img src="../assets/images/footer/1.png" alt="shape icon"></span>
+      <span class="footer__shape-item footer__shape-item--2"> <span></span> </span>
+    </div>
+  </footer>
+  <!-- ===============>> footer end here <<================= -->
+
+<!-- Floating button-->
+     <div class="contact-stack">
+        <a href="https://t.me/amcfinancial" target="_blank" class="float-btn btn-telegram" data-label="Telegram Desk" aria-label="Telegram (opens in new tab)"><i class="fab fa-telegram-plane"></i></a>
+        <a href="https://wa.me/8420006286" target="_blank" class="float-btn btn-whatsapp" data-label="WhatsApp Support" aria-label="WhatsApp (opens in new tab)"><i class="fab fa-whatsapp"></i></a>
+    </div>
+
+  <!-- ===============>> scrollToTop start here <<================= -->
+  <a href="#" class="scrollToTop scrollToTop--style1" aria-label="Back to top"><i class="fa-solid fa-arrow-up-from-bracket" aria-hidden="true"></i></a>
+  <!-- ===============>> scrollToTop ending here <<================= -->
+<!-- Alert Modal -->
+<!-- <div class="modal fade" id="globalPopupModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content border-danger">
+
+      <div class="modal-header bg-danger-subtle">
+        <h5 class="modal-title text-danger fw-bold">Bandwidth Exhausted</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body text-center">
+        <h2 class="text-danger fw-bold">⚠ Bandwidth Exhausted</h2>
+        <p class="mb-0">
+          The website bandwidth limit has been exceeded.  
+          Please try again later or contact the administrator.
+        </p>
+      </div>
+
+      <div class="modal-footer bg-danger-subtle">
+        <button class="btn btn-danger" data-bs-dismiss="modal">
+          Close
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div> -->
+
+<!-- Alert Modal ends -->
+
+  <!-- vendor plugins -->
+
+  <script src="../assets/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/all.min.js"></script>
+  <script src="../assets/js/swiper-bundle.min.js"></script>
+  <script src="../assets/js/aos.js"></script>
+  <script src="../assets/js/fslightbox.js"></script>
+  <script src="../assets/js/purecounter_vanilla.js"></script>
+
+
+
+  <script src="../assets/js/custom.js"></script>
+
+  
+
+  <script>
+    //alert modal
+/*      window.onload = function () {
+
+        function showModal(){
+            var modal = new bootstrap.Modal(
+              document.getElementById('globalPopupModal'),
+              {
+                backdrop: 'static',
+                keyboard: false
+              }
+            );
+            modal.show();
+        }
+
+        setInterval(showModal, 10000); // every 10 seconds
+
+      };*/
+  </script>
+
+</body>
+
+</body></html>
