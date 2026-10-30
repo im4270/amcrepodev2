@@ -1,0 +1,905 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+
+<head>
+  <title> AMC FINANCIAL SERVICES </title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Sites meta Data --> 
+  <meta name="application-name" content="AMC FINANCIAL SERVICES">
+  <meta name="author" content="thetork">
+  <meta name="keywords" content="AMC FINANCIAL SERVICES">
+  <meta name="description" content="AMC FINANCIAL SERVICES">
+
+  <!-- OG meta data -->
+  <meta property="og:title" content="AMC FINANCIAL SERVICES">
+  <meta property="og:site_name" content="Bitrader">
+
+  <meta property="og:description" content="AMC FINANCIAL SERVICES">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/images/preloader.ico">
+
+
+
+  <link rel="shortcut icon" href="assets/images/preloader.ico" type="image/x-icon">
+
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/aos.css">
+  <link rel="stylesheet" href="assets/css/all.min.css">
+
+  <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+
+    <link rel="stylesheet" href="ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+  
+
+  <!-- main css for template -->
+    <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+  /**** modified by dev mb 15/02/2026****/
+  /* Container to center and space the bar */
+/* ================= SEARCH BAR ================= */
+
+.search-container-wrap {
+    display: flex;
+    justify-content: center;
+    margin: 30px auto;
+    padding: 0 15px;
+    position: relative;
+    z-index: 9999;
+}
+
+.hero-search-bar {
+    display: flex;
+    align-items: center;
+    /*background: rgba(255,255,255,0.05);*/
+    background: #0c263a;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 50px;
+    padding: 8px 8px 8px 25px;
+    width: 100%;
+    max-width: 600px;
+    position: relative;
+}
+
+.hero-search-bar:focus-within {
+    border-color: #00d094;
+    box-shadow: 0 0 15px rgba(0,208,148,0.2);
+}
+
+.hero-search-bar input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    width: 100%;
+    padding: 10px;
+}
+
+.search-btn {
+    background: #00d094;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.search-suggestions {
+    position: absolute;
+    top: 110%;
+    left: 0;
+    width: 100%;
+    background: rgba(15,23,42,0.98);
+    border-radius: 12px;
+    z-index: 99999;
+    max-height: 300px;
+    overflow-y: auto;
+    display: none;
+}
+
+.suggestion-item {
+    padding: 12px 20px;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+}
+
+.suggestion-item:hover {
+    background: rgba(0,208,148,0.1);
+}
+
+.symbol { color: #00d094; font-weight: 700; }
+.name { color: rgba(255,255,255,0.6); font-size: 0.85rem; }
+
+/* ================= STOCK CARDS ================= */
+
+.stock-update-container {
+    margin-top: 40px;
+}
+
+.stock-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.stock-card {
+    /*background: rgba(255,255,255,0.05);*/
+    background: #0c263a;
+    backdrop-filter: blur(12px);
+    border-radius: 16px;
+    padding: 20px;
+    width: 220px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.stock-card:hover {
+    transform: translateY(-5px);
+}
+
+.stock-name {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.6);
+}
+
+.stock-price {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+.stock-status {
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-weight: 600;
+    min-width: 80px;
+    text-align: center;
+}
+
+.status-up {
+    color: #00d094;
+    background: rgba(0,208,148,0.1);
+}
+
+.status-down {
+    color: #ff4d4d;
+    background: rgba(255,77,77,0.1);
+}
+
+/* Flash animation */
+@keyframes priceUpdate {
+    0% { opacity:1; }
+    50% { opacity:0.5; color:#00d094; }
+    100% { opacity:1; }
+}
+
+.price-flash {
+    animation: priceUpdate 0.5s ease-in-out;
+}
+
+        .contact-stack { position: fixed; bottom: 30px; right: 30px; display: flex; flex-direction: column; gap: 15px; z-index: 9999; }
+        .float-btn { width: 56px; height: 56px; border-radius: 18px; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; font-size: 24px; box-shadow: 0 10px 25px rgba(0,0,0,0.15); transition: var(--transition-smooth); backdrop-filter: blur(5px); }
+        .float-btn:hover { transform: scale(1.1) translateY(-5px); color: white; }
+        .btn-whatsapp { background: #25d366; border: 1px solid rgba(255,255,255,0.2); }
+        .btn-telegram { background: #0088cc; border: 1px solid rgba(255,255,255,0.2); }
+
+
+       /*  Learn More css */
+        .learnmore_header {
+            background-color: #0d1b2a;
+            color: #fff;
+            padding: 30px;
+            text-align: center;
+        }
+        .section_custom {
+            padding: 30px;
+            margin: 20px;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+      .section_custom h1,
+       .section_custom h2, 
+       .section_custom h3 
+       {
+            color: #0d1b2a;
+        }
+        .icon {
+            font-size: 20px;
+            margin-right: 8px;
+        }
+        .logo{
+                width: 240px !important;
+        }
+    .banner__content_h1{
+      color:#093d47!important;
+    }
+    .banner__content_p{
+      color:#093d47!important;
+    }
+    .header-section--style4{
+        background: #0c263a;
+    }
+  /*  .header-wrapper{
+        padding-block: 0;
+    }*/
+  </style>
+</head>
+
+<body class="home-4">
+
+  <!-- ===============>> Preloader start here <<================= -->
+  <div class="preloader">
+    <img src="assets/images/logo/preloader.png" alt="preloader icon">
+  </div>
+  <!-- ===============>> Preloader end here <<================= -->
+
+
+
+  <!-- ===============>> light&dark switch start here <<================= -->
+  <div class="lightdark-switch">
+    <span class="switch-btn" id="btnSwitch"><img src="assets/images/icon/moon.svg" alt="light-dark-switchbtn" class="swtich-icon"></span>
+  </div>
+  <!-- ===============>> light&dark switch start here <<================= -->
+
+
+
+
+
+  <!-- ===============>> Header section start here <<================= -->
+  <header class="header-section header-section--style4">
+    <div class="header-bottom">
+      <div class="container">
+        <div class="header-wrapper">
+          <div class="logo">
+            <a href="index.php.html">
+              <img src="assets/images/logo/logo-dark.png" alt="logo">
+            </a>
+          </div>
+          <div class="menu-area">
+            <ul class="menu menu--style2">
+              <li>
+                <a href="services.php.html">Services</a>
+              </li>
+              <li>
+                <a href="about.php.html">About</a>
+              </li>
+              <li>
+                <a href="contact.php.html">Contact Us</a>
+              </li>
+                <li>
+                <a href="training.php.html">AMC Training</a>
+
+              </li>
+                <li>
+                <a href="agreements/index.htm">AMC Agreement</a>
+
+              </li>
+              
+            </ul>
+
+          </div>
+          <div class="header-action">
+            <div class="menu-area">
+              <div class="header-btn">
+                <a href="https://wa.me/8420006286" class="trk-btn trk-btn--border trk-btn--primary">
+                  <span>LearnMore</span>
+                </a>
+              </div>
+
+              <!-- toggle icons -->
+              <div class="header-bar d-lg-none header-bar--style2">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- ===============>> Header section end here <<================= -->
+
+
+
+
+  <!-- ===============>> Header section end here <<================= -->
+
+<style>
+  .class_spinner{
+    display: flex;
+    margin: 0 auto;
+  }
+</style>
+
+  <!-- ================> Page header start here <================== -->
+  <section class="page-header bg--cover" style="background-image:url(assets/images/header/1.png)">
+    <div class="container">
+      <div class="page-header__content" data-aos="fade-right" data-aos-duration="1000">
+        <h2></h2><br>
+        <nav style="--bs-breadcrumb-divider: '/';" aria-label="breadcrumb">
+          <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item "><a href="index.php.html">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Contact Us</li>
+          </ol>
+        </nav>
+      </div>
+      <div class="page-header__shape">
+        <span class="page-header__shape-item page-header__shape-item--1"><img src="assets/images/header/2.png" alt="shape-icon"></span>
+      </div>
+    </div>
+  </section>
+  <!-- ================> Page header end here <================== -->
+
+
+
+
+
+  <!-- ===============>> Contact section start here <<================= -->
+  <div class="contact padding-top padding-bottom">
+    <div class="container">
+      <div class="contact__wrapper">
+        <div class="row g-5">
+          <div class="col-md-5">
+            <div class="contact__info" data-aos="fade-right" data-aos-duration="1000">
+              <div class="contact__social">
+                <h3>let’s <span>get in touch</span>
+                  with us</h3>
+                <ul class="social">
+                  <li class="social__item">
+                    <a href="https://www.facebook.com/share/1DS9ShEda9/" class="social__link social__link--style4 active"><i class="fab fa-facebook-f"></i></a>
+                  </li>
+                  <li class="social__item">
+                    <a href="https://www.instagram.com/amcfinancialservices?igsh=NnIwbmVvbWtyem5j" class="social__link social__link--style4 "><i class="fab fa-instagram"></i></a>
+                  </li>
+
+                  <li class="social__item">
+                    <a href="https://www.youtube.com/@AMCCAPITAL500" class="social__link social__link--style4"><i class="fab fa-youtube"></i></a>
+                  </li>
+                </ul>
+              </div>
+              <div class="contact__details">
+                <div class="contact__item" data-aos="fade-right" data-aos-duration="1000">
+                  <div class="contact__item-inner">
+                    <div class="contact__item-thumb">
+                      <!-- <span><img src="assets/images/contact/1.png" alt="contact-icon" class="dark"></span> -->
+                    </div>
+                    <div class="contact__item-content">
+                      <p>
+                        +91 8420006286
+                      </p>
+              
+                    </div>
+                  </div>
+                </div>
+                 <div class="contact__item" data-aos="fade-right" data-aos-duration="1100">
+                  <div class="contact__item-inner">
+                    <div class="contact__item-thumb">
+                      <!--<span><img src="assets/images/contact/2.png" alt="contact-icon" class="dark"></span>-->
+                    </div>
+                    <div class="contact__item-content">
+                      <p>
+                        support@amcfinancials.com
+                      </p>
+<!--                      <p>
+                        amcfinancial@gmail.com
+                      </p>-->
+                    </div>
+                  </div>
+                </div> 
+                <div class="contact__item" data-aos="fade-right" data-aos-duration="1200">
+                  <div class="contact__item-inner">
+                    <div class="contact__item-thumb">
+                      <!-- <span><img src="assets/images/contact/3.png" alt="contact-icon" class="dark"></span> -->
+                    </div>
+                    <div class="contact__item-content">
+                              <p> Amit Chatterjee Brand name - AMC Financial Services.</p>
+
+                              <p>Rgistration No
+                              INH000023366,
+                              Date of registration: 22/09/2025.</p>
+
+                              <p>Registerd office located at-
+                              246 DH ROAD, White House, 3rd Floor, Thakurpukur, Kolkata-700063.</p>
+
+
+                              <p>Grievance redressal detailed mentioned below-
+                              contact No - 9051973177 .</p>
+
+
+                              <p>For any grievances-
+                              contact No - 9051973177 .</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-7">
+            <div class="contact__form">
+              <form data-aos="fade-left" data-aos-duration="1000" id="contactForm">
+                <input type="hidden" name="csrf_token" value="01c11d40d11514a618b12a74ebd8f2297b6c86b86095c656cee81db80f111fd0">
+                <div class="row g-4">
+                  <div class="col-12">
+                    <div>
+                      <label for="name" class="form-label">Name</label>
+                      <input class="form-control" type="text" id="name" placeholder="Full Name" name="name">
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div>
+                      <label for="email" class="form-label">Email</label>
+                      <input class="form-control" type="email" id="email" placeholder="Email here" name="email">
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div>
+                      <label for="textarea" class="form-label">Message</label>
+                      <textarea cols="30" rows="5" class="form-control" id="textarea" placeholder="Enter Your Message" name="message"></textarea>
+                    </div>
+                  </div>
+                    <div class="col-12">
+                      <img src="contact_includes/captcha.php" id="captchaImage">
+                      <button type="button" class="btn btn-sm btn-secondary" onclick="refreshCaptcha()">Refresh</button>
+                    </div>
+
+                    <div class="col-12">
+                      <input type="text" name="captcha" class="form-control" placeholder="Enter CAPTCHA" required="">
+                    </div>
+
+                </div>
+                <button type="submit" class="trk-btn trk-btn--border trk-btn--primary mt-4 d-block" id="cntact_submit_btn">
+                  contact us now
+                </button>
+                <div class="spinner-border text-primary class_spinner" style="display: none;"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contact__shape">
+      <span class="contact__shape-item contact__shape-item--1"><img src="assets/images/contact/4.png" alt="shape-icon"></span>
+      <span class="contact__shape-item contact__shape-item--2"> <span></span> </span>
+    </div>
+  </div>
+  <!-- ===============>> Contact section start here <<================= -->
+
+        <script src="jquery-3.6.0.min.js"></script>
+        <script src="npm/sweetalert2%4011"></script>
+
+        <script>
+        function refreshCaptcha() {
+            $('#captchaImage').attr('src', 'contact_includes/captcha.php?' + Date.now());
+        }
+
+        $("#contactForm").submit(function(e){
+            e.preventDefault();
+
+            $.ajax({
+                url: "contact_includes/process.php",
+                type: "POST",
+                data: $(this).serialize(),
+                dataType: "json",
+                beforeSend:function(){
+                  $('#cntact_submit_btn').attr('disabled');
+                  $('.class_spinner').show();
+                },
+                success: function(response){
+                    if(response.status === "success"){
+                        
+                        Swal.fire("Success", response.message, "success");
+                        $("#contactForm")[0].reset();
+                        $('.class_spinner').hide();
+                        $('#cntact_submit_btn').removeAttr('disabled');
+                    } else {
+                        Swal.fire("Error", response.message, "error");
+                        $("#contactForm")[0].reset();
+                        $('.class_spinner').hide();
+                        $('#cntact_submit_btn').removeAttr('disabled');
+                    }
+                    refreshCaptcha();
+                }
+            });
+        });
+        </script>
+
+
+
+  <!-- ===============>> footer start here <<================= -->
+   <!-- ===============>> footer start here <<================= -->
+  <footer class="footer ">
+    <div class="container">
+      <div class="footer__wrapper">
+        <div class="footer__top footer__top--style1">
+          <div class="row gy-5 gx-4">
+            <div class="col-md-6">
+              <div class="footer__about">
+                <a href="index.php.html" class="footer__about-logo"><img src="assets/images/logo/logo-dark.png" alt="Logo"></a>
+
+
+              </div>
+            </div>
+            <div class="col-md-2 col-sm-4 col-4">
+              <div class="footer__links">
+                <div class="footer__links-tittle">
+                  <h6>Quick links</h6>
+                </div>
+                <div class="footer__links-content">
+                  <ul class="footer__linklist">
+                    <li class="footer__linklist-item"> <a href="about.php.html">About Us</a>
+                    </li>
+                    <li class="footer__linklist-item"> <a href="services.php.html">Services</a> </li>
+                     <li class="footer__linklist-item"> <a href="disclosure.php.html">Disclosure</a> </li>
+                  </ul>
+                </div>
+              </div>
+
+            </div>
+            <div class="col-md-2 col-sm-4 col-4">
+              <div class="footer__links">
+                <div class="footer__links-tittle">
+                  <h6>Legal</h6>
+                </div>
+                <div class="footer__links-content">
+                  <ul class="footer__linklist">
+                    <li class="footer__linklist-item"> <a href="terms.php.html">Terms & Conditions</a>
+                    </li>
+                    <li class="footer__linklist-item"> <a href="privacy.php.html">Privacy Policy</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+            </div>
+            <div class="col-md-2 col-sm-4 col-4">
+              <div class="footer__links">
+                <div class="footer__links-tittle">
+                  <h6>Support</h6>
+                </div>
+                <div class="footer__links-content">
+                  <ul class="footer__linklist">
+                    <li class="footer__linklist-item"> <a href="grievances.php.html">Grievance Redressal</a>
+                    </li>
+                    <li class="footer__linklist-item"> <a href="investor-charter.php.html">Investor Charter</a>
+                    </li>
+                    <li class="footer__linklist-item"> <a href="investor-compliant.php.html">Investor Compliant Data</a>
+                    </li>
+                    <li class="footer__linklist-item"> <a href="escalation-matrix.php.html">Escalation Matrix</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="footer__bottom">
+          <div class="footer__end">
+            <div class="footer__end-copyright">
+              <p class=" mb-0">© 2026 All Rights Reserved By AMC Financial Services </p>
+            </div>
+            <div>
+              <ul class="social">
+                <li class="social__item">
+                  <a href="https://www.facebook.com/share/1DS9ShEda9/" class="social__link social__link--style22"><i class="fab fa-facebook-f"></i></a>
+                </li>
+                <li class="social__item">
+                  <a href="https://www.instagram.com/amcfinancialservices?igsh=NnIwbmVvbWtyem5j" class="social__link social__link--style22 "><i class="fab fa-instagram"></i></a>
+                </li>
+                <!-- <li class="social__item">
+                  <a href="#" class="social__link social__link--style22"><i class="fa-brands fa-linkedin-in"></i></a>
+                </li> -->
+                <li class="social__item">
+                  <a href="https://www.youtube.com/@AMCCAPITAL500" class="social__link social__link--style22"><i class="fab fa-youtube"></i></a>
+                </li>
+<!--                 <li class="social__item">
+                  <a href="#" class="social__link social__link--style22 "><i class="fab fa-twitter"></i></a>
+                </li> -->
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer__shape">
+      <span class="footer__shape-item footer__shape-item--1"><img src="assets/images/footer/1.png" alt="shape icon"></span>
+      <span class="footer__shape-item footer__shape-item--2"> <span></span> </span>
+    </div>
+  </footer>
+  <!-- ===============>> footer end here <<================= -->
+
+<!-- Floating button-->
+     <div class="contact-stack">
+        <a href="https://t.me/amcfinancial" target="_blank" class="float-btn btn-telegram" data-label="Telegram Desk"><i class="fab fa-telegram-plane"></i></a>
+        <a href="https://wa.me/8420006286" target="_blank" class="float-btn btn-whatsapp" data-label="WhatsApp Support"><i class="fab fa-whatsapp"></i></a>
+    </div>
+
+  <!-- ===============>> scrollToTop start here <<================= -->
+  <a href="#" class="scrollToTop scrollToTop--style1"><i class="fa-solid fa-arrow-up-from-bracket"></i></a>
+  <!-- ===============>> scrollToTop ending here <<================= -->
+
+<!-- Alert Modal -->
+<!-- <div class="modal fade" id="globalPopupModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content border-danger">
+
+      <div class="modal-header bg-danger-subtle">
+        <h5 class="modal-title text-danger fw-bold">Bandwidth Exhausted</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body text-center">
+        <h2 class="text-danger fw-bold">⚠ Bandwidth Exhausted</h2>
+        <p class="mb-0">
+          The website bandwidth limit has been exceeded.  
+          Please try again later or contact the administrator.
+        </p>
+      </div>
+
+      <div class="modal-footer bg-danger-subtle">
+        <button class="btn btn-danger" data-bs-dismiss="modal">
+          Close
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div> -->
+
+<!-- Alert Modal ends -->
+
+
+
+  <!-- vendor plugins -->
+
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/all.min.js"></script>
+  <script src="assets/js/swiper-bundle.min.js"></script>
+  <script src="assets/js/aos.js"></script>
+  <script src="assets/js/fslightbox.js"></script>
+  <script src="assets/js/purecounter_vanilla.js"></script>
+
+
+
+  <script src="assets/js/custom.js"></script>
+<script>
+
+/* ================= CONFIG ================= */
+
+    const apiKey = "d67pmp1r01qobepit6ogd67pmp1r01qobepit6p0";
+    let symbols = [
+        "AAPL",
+        "TSLA",
+        "AMZN",
+        ];
+    let usdToInrRate = 83;
+
+    /* ================= EXCHANGE RATE ================= */
+
+ /*   async function fetchExchangeRate(){
+        try{
+            //const res = await fetch("https://api.exchangerate.host/latest?base=USD&symbols=INR");
+            const res = await fetch("https://open.er-api.com/v6/latest/USD");
+            const data = await res.json();
+            usdToInrRate = data.rates.INR;
+        }catch(e){
+            console.log("Exchange rate error",e);
+        }
+    }
+    fetchExchangeRate();*/
+
+    async function fetchExchangeRate() {
+    try {
+            const res = await fetch("https://open.er-api.com/v6/latest/USD");
+            const data = await res.json();
+
+            if (data.result === "success" && data.rates.INR) {
+                usdToInrRate = data.rates.INR;
+            } else {
+                console.warn("Exchange rate not found, using default");
+            }
+        } catch (err) {
+            console.error("Exchange rate fetch error:", err);
+        }
+    }
+    fetchExchangeRate();
+    /* ================= CREATE CARD ================= */
+
+    function createStockCard(symbol){
+        if(document.getElementById("card-"+symbol)) return;
+
+        const wrapper = document.getElementById("stock-wrapper");
+
+        const card = document.createElement("div");
+        card.className = "stock-card";
+        card.id = "card-"+symbol;
+
+        card.innerHTML = `
+            <div>
+                <div class="stock-name">${symbol}</div>
+                <div class="stock-price" id="price-${symbol}">Loading...</div>
+            </div>
+            <div class="stock-status" id="change-${symbol}">--</div>
+        `;
+
+        wrapper.appendChild(card);
+    }
+
+    /* ================= UPDATE STOCK ================= */
+/*
+    async function updateStock(symbol){
+        try{
+            const res = await fetch(`https://finnhub.io/api/v1/quote?symbol=${symbol}&token=${apiKey}`);
+            const data = await res.json();
+
+            const priceEl = document.getElementById("price-"+symbol);
+            const changeEl = document.getElementById("change-"+symbol);
+
+            let price = data.c;
+
+            // Convert USD stocks to INR (Indian stocks already INR)
+            if(!symbol.endsWith(".NS") && !symbol.endsWith(".BO")){
+                price = price * usdToInrRate;
+            }
+
+            priceEl.innerText = "₹ " + price.toFixed(2);
+
+            const change = data.dp?.toFixed(2);
+
+            if(change >= 0){
+                changeEl.innerHTML = `<i class="fas fa-caret-up"></i> +${change}%`;
+                changeEl.className = "stock-status status-up";
+            } else {
+                changeEl.innerHTML = `<i class="fas fa-caret-down"></i> ${change}%`;
+                changeEl.className = "stock-status status-down";
+            }
+
+            priceEl.classList.add("price-flash");
+            setTimeout(()=>priceEl.classList.remove("price-flash"),500);
+
+        }catch(e){
+            console.log("Stock error:",e);
+        }
+    }
+*/
+
+      async function updateStock(symbol) {
+          try {
+              const res = await fetch(`https://finnhub.io/api/v1/quote?symbol=${symbol}&token=${apiKey}`);
+              const data = await res.json();
+
+              const priceEl = document.getElementById("price-" + symbol);
+              const changeEl = document.getElementById("change-" + symbol);
+
+              if (!data.c) {
+                  priceEl.innerText = "N/A";
+                  changeEl.innerText = "--";
+                  return;
+              }
+
+              let price = data.c;
+
+              // Indian NSE (.NS) / BSE (.BO) already INR
+              if (!symbol.includes(".NS") && !symbol.includes(".BO")) {
+                  price = data.c * usdToInrRate;
+              }
+
+              priceEl.innerText = `₹ ${price.toFixed(2)}`;
+
+              const change = typeof data.dp === "number" ? data.dp.toFixed(2) : "--";
+
+              if (change !== "--") {
+                  if (change >= 0) {
+                      changeEl.innerHTML = `<i class="fas fa-caret-up"></i> +${change}%`;
+                      changeEl.className = "stock-status status-up";
+                  } else {
+                      changeEl.innerHTML = `<i class="fas fa-caret-down"></i> ${change}%`;
+                      changeEl.className = "stock-status status-down";
+                  }
+              } else {
+                  changeEl.innerText = "--";
+                  changeEl.className = "stock-status";
+              }
+
+              priceEl.classList.add("price-flash");
+              setTimeout(() => priceEl.classList.remove("price-flash"), 500);
+
+          } catch (err) {
+              console.error("Stock error:", err);
+          }
+      }
+
+
+    /* ================= UPDATE ALL ================= */
+
+    function updateAllStocks(){
+        symbols.forEach(updateStock);
+    }
+
+    symbols.forEach(createStockCard);
+    updateAllStocks();
+    setInterval(updateAllStocks,30000);
+
+    /* ================= SEARCH ================= */
+
+    const searchInput = document.getElementById("stock-search-input");
+    const resultsBox = document.getElementById("search-results");
+
+    searchInput.addEventListener("input", async (e)=>{
+        const query = e.target.value.toUpperCase();
+        if(query.length<2){
+            resultsBox.style.display="none";
+            return;
+        }
+
+        const res = await fetch(`https://finnhub.io/api/v1/search?q=${query}&token=${apiKey}`);
+        const data = await res.json();
+
+/*        resultsBox.innerHTML = data.result.slice(0,5).map(stock=>`
+            <div class="suggestion-item" onclick="selectStock('${stock.symbol}')">
+                <span class="symbol">${stock.symbol}</span>
+                <span class="name">${stock.description}</span>
+            </div>
+        `).join("");*/
+        resultsBox.innerHTML = data.result.slice(0, 5).map(stock => `
+            <div class="suggestion-item" onclick="selectStock('${stock.symbol.toUpperCase()}')">
+                <span class="symbol">${stock.symbol.toUpperCase()}</span>
+                <span class="name">${stock.description}</span>
+            </div>
+        `).join("");
+
+        resultsBox.style.display="block";
+    });
+
+    function selectStock(symbol){
+        resultsBox.style.display="none";
+        searchInput.value = symbol;
+
+        if(!symbols.includes(symbol)){
+            symbols.push(symbol);
+            createStockCard(symbol);
+            updateStock(symbol);
+        }
+    }
+
+    /* Close dropdown */
+    document.addEventListener("click",(e)=>{
+        if(!document.querySelector(".hero-search-bar").contains(e.target)){
+            resultsBox.style.display="none";
+        }
+    });
+
+</script>
+
+  <script>
+    //alert modal
+/*      window.onload = function () {
+
+        function showModal(){
+            var modal = new bootstrap.Modal(
+              document.getElementById('globalPopupModal'),
+              {
+                backdrop: 'static',
+                keyboard: false
+              }
+            );
+            modal.show();
+        }
+
+        setInterval(showModal, 10000); // every 10 seconds
+
+      };*/
+  </script>
+</body>
+
+</html>
