@@ -1,0 +1,49 @@
+/* =====================================================================
+   AMC Financial Services - accessibility colour fixes (WCAG 2.1 AA, SC 1.4.3)
+   Load this file LAST in <head>, after style.css. It only changes colours
+   that fail contrast; layout and everything else stay as they are.
+   ===================================================================== */
+
+/* Home + Services: "services" word in the "services We offer" heading
+   was #00D094 on #EEF1F6 = 1.77:1 (needs 3:1 for large text) -> 3.63:1 */
+html:not([data-bs-theme=dark]) body .service-section .section-header h2 span.style2 {
+  color: #008F63;
+}
+
+/* Home + Services: paragraph under that heading
+   was #6B777F on #EEF1F6 = 4.05:1 (needs 4.5:1) -> 5.28:1 */
+html:not([data-bs-theme=dark]) body .service-section .section-header p {
+  color: #5A656C;
+}
+
+/* Blog "Trading Business": "Join Now" button and SEBI registration badge
+   white on #00C6FF = 1.99:1 (needs 4.5:1) -> 5.00:1 */
+html body .btn-premium,
+html body .sebi-badge {
+  background: #0077A8;
+}
+
+/* Services "Investment Planning" + "Management": "Important" boxes
+   #6B777F on #F8FBF9 = 4.41:1 (needs 4.5:1) -> 5.26:1 */
+html body .invest-highlight,
+html body .cms-highlight {
+  color: #5F6B72;
+}
+
+/* Services "Strategy Consulting": green banner
+   #F2FBF8 on #00A86B = 2.92:1 (needs 4.5:1) -> 5.12:1 */
+html body .sc-banner {
+  background: #007A4D;
+}
+
+/* Home: the 4 counter captions ("Timely market update" etc.)
+   opacity 0.8 made the text #899299 on white = 3.16:1 (needs 4.5:1) -> 4.6:1+ */
+html body .counter__item-inner p {
+  opacity: 1;
+}
+
+/* Investor complaints page: "Research Analyst Disclosure" label
+   #6B777F on #E9FAF5 = 4.25:1 (needs 4.5:1) -> 5.54:1 */
+html body .eyebrow {
+  color: #5A656C;
+}
