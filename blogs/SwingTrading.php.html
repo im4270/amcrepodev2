@@ -1,0 +1,716 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+
+<head>
+  <title> AMC FINANCIAL SERVICES </title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Sites meta Data --> 
+  <meta name="application-name" content="AMC FINANCIAL SERVICES">
+  <meta name="author" content="thetork">
+  <meta name="keywords" content="AMC FINANCIAL SERVICES">
+  <meta name="description" content="AMC FINANCIAL SERVICES">
+
+  <!-- OG meta data -->
+  <meta property="og:title" content="AMC FINANCIAL SERVICES">
+  <meta property="og:site_name" content="Bitrader">
+
+  <meta property="og:description" content="AMC FINANCIAL SERVICES">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="./../assets/images/preloader.ico">
+
+
+
+  <link rel="shortcut icon" href="../assets/images/preloader.ico" type="image/x-icon">
+
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/aos.css">
+  <link rel="stylesheet" href="../assets/css/all.min.css">
+
+  <link rel="stylesheet" href="../assets/css/swiper-bundle.min.css">
+
+    <link rel="stylesheet" href="../ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+   
+
+  <!-- main css for template -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+  /**** modified by dev mb 15/02/2026****/
+  /* Container to center and space the bar */
+/* ================= SEARCH BAR ================= */
+
+.search-container-wrap {
+    display: flex;
+    justify-content: center;
+    margin: 30px auto;
+    padding: 0 15px;
+    position: relative;
+    z-index: 9999;
+}
+
+.hero-search-bar {
+    display: flex;
+    align-items: center;
+    /*background: rgba(255,255,255,0.05);*/
+    background: #0c263a;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 50px;
+    padding: 8px 8px 8px 25px;
+    width: 100%;
+    max-width: 600px;
+    position: relative;
+}
+
+.hero-search-bar:focus-within {
+    border-color: #00d094;
+    box-shadow: 0 0 15px rgba(0,208,148,0.2);
+}
+
+.hero-search-bar input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    width: 100%;
+    padding: 10px;
+}
+
+.search-btn {
+    background: #00d094;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.search-suggestions {
+    position: absolute;
+    top: 110%;
+    left: 0;
+    width: 100%;
+    background: rgba(15,23,42,0.98);
+    border-radius: 12px;
+    z-index: 99999;
+    max-height: 300px;
+    overflow-y: auto;
+    display: none;
+}
+
+.suggestion-item {
+    padding: 12px 20px;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+}
+
+.suggestion-item:hover {
+    background: rgba(0,208,148,0.1);
+}
+
+.symbol { color: #00d094; font-weight: 700; }
+.name { color: rgba(255,255,255,0.6); font-size: 0.85rem; }
+
+/* ================= STOCK CARDS ================= */
+
+.stock-update-container {
+    margin-top: 40px;
+}
+
+.stock-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.stock-card {
+    /*background: rgba(255,255,255,0.05);*/
+    background: #0c263a;
+    backdrop-filter: blur(12px);
+    border-radius: 16px;
+    padding: 20px;
+    width: 220px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.stock-card:hover {
+    transform: translateY(-5px);
+}
+
+.stock-name {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.6);
+}
+
+.stock-price {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+.stock-status {
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-weight: 600;
+    min-width: 80px;
+    text-align: center;
+}
+
+.status-up {
+    color: #00d094;
+    background: rgba(0,208,148,0.1);
+}
+
+.status-down {
+    color: #ff4d4d;
+    background: rgba(255,77,77,0.1);
+}
+
+/* Flash animation */
+@keyframes priceUpdate {
+    0% { opacity:1; }
+    50% { opacity:0.5; color:#00d094; }
+    100% { opacity:1; }
+}
+
+.price-flash {
+    animation: priceUpdate 0.5s ease-in-out;
+}
+
+        .contact-stack { position: fixed; bottom: 30px; right: 30px; display: flex; flex-direction: column; gap: 15px; z-index: 9999; }
+        .float-btn { width: 56px; height: 56px; border-radius: 18px; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; font-size: 24px; box-shadow: 0 10px 25px rgba(0,0,0,0.15); transition: var(--transition-smooth); backdrop-filter: blur(5px); }
+        .float-btn:hover { transform: scale(1.1) translateY(-5px); color: white; }
+        .btn-whatsapp { background: #25d366; border: 1px solid rgba(255,255,255,0.2); }
+        .btn-telegram { background: #0088cc; border: 1px solid rgba(255,255,255,0.2); }
+
+
+       /*  Learn More css */
+        .learnmore_header {
+            background-color: #0d1b2a;
+            color: #fff;
+            padding: 30px;
+            text-align: center;
+        }
+        .section_custom {
+            padding: 30px;
+            margin: 20px;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+      .section_custom h1,
+       .section_custom h2, 
+       .section_custom h3 
+       {
+            color: #0d1b2a;
+        }
+        .icon {
+            font-size: 20px;
+            margin-right: 8px;
+        }
+        .logo{
+                width: 240px !important;
+        }
+    .banner__content_h1{
+      color:#093d47!important;
+    }
+    .banner__content_p{
+      color:#093d47!important;
+    }
+    .header-section--style4{
+        background: #0c263a;
+    }
+  /*  .header-wrapper{
+        padding-block: 0;
+    }*/
+  </style>
+  <link rel="stylesheet" href="../assets/css/accessibility.css">
+</head>
+
+<body class="home-4">
+
+  <!-- ===============>> Preloader start here <<================= -->
+  <div class="preloader">
+    <img src="../assets/images/logo/preloader.png" alt="preloader icon">
+  </div>
+  <!-- ===============>> Preloader end here <<================= -->
+
+
+
+  <!-- ===============>> light&dark switch start here <<================= -->
+<!--   <div class="lightdark-switch">
+    <span class="switch-btn" id="btnSwitch"><img src="./../assets/images/icon/moon.svg" alt="light-dark-switchbtn"
+        class="swtich-icon"></span>
+  </div> -->
+  <!-- ===============>> light&dark switch start here <<================= -->
+
+
+
+
+
+  <!-- ===============>> Header section start here <<================= -->
+  <header class="header-section header-section--style4" style="top:0;">
+    <div class="header-bottom">
+      <div class="container">
+        <div class="header-wrapper">
+          <div class="logo">
+            <a href="../index.php.html">
+              <img src="../assets/images/logo/logo-dark.png" alt="logo">
+            </a>
+          </div>
+          <div class="menu-area">
+            <ul class="menu menu--style2">
+              <li>
+                <a href="../services.php.html">Services</a>
+              </li>
+              <li>
+                <a href="../about.php.html">About</a>
+              </li>
+              <li>
+                <a href="../contact.php.html">Contact Us</a>
+              </li>
+                <li>
+                <a href="../training.php.html">AMC Training</a>
+              </li>
+            </ul>
+
+          </div>
+          <div class="header-action">
+            <div class="menu-area">
+              <div class="header-btn">
+                <a href="https://wa.me/8420006286" class="trk-btn trk-btn--border trk-btn--primary">
+                  <span>LearnMore</span>
+                </a>
+              </div>
+
+              <!-- toggle icons -->
+              <div class="header-bar d-lg-none header-bar--style2">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- ===============>> Header section end here <<================= -->
+
+
+
+
+
+<!-- Google Font -->
+<link href="../css2-1?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+
+
+<style>
+
+body{
+font-family:'Inter',sans-serif;
+margin:0;
+background:#f4f7fa;
+color:#222;
+}
+
+/* Hero */
+.hero{
+background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+color:#fff;
+padding:120px 20px;
+text-align:center;
+position:relative;
+overflow:hidden;
+margin: 20px;
+}
+
+.hero h1{
+font-size:48px;
+font-weight:700;
+animation:fadeDown 1s ease;
+color: #FFF;
+
+}
+
+.hero p{
+font-size:18px;
+max-width:750px;
+margin:auto;
+opacity:0.9;
+animation:fadeUp 1.2s ease;
+}
+
+/* Glass Card */
+.glass{
+background:rgba(255,255,255,0.7);
+backdrop-filter:blur(15px);
+border-radius:20px;
+padding:40px;
+box-shadow:0 20px 50px rgba(0,0,0,0.08);
+transition:0.4s;
+}
+
+.glass:hover{
+transform:translateY(-8px);
+}
+
+/* Section */
+.section{
+padding:70px 0;
+}
+
+.section-title{
+font-weight:700;
+color:#093d47;
+margin-bottom:30px;
+}
+
+/* Highlight Box */
+.highlight{
+background:#093d47;
+color:#fff;
+padding:25px;
+border-radius:15px;
+margin:30px 0;
+}
+
+/* Chart Section */
+.chart-box{
+background:#fff;
+border-radius:20px;
+padding:20px;
+box-shadow:0 15px 40px rgba(0,0,0,0.08);
+}
+
+/* Animation */
+@keyframes fadeDown{
+from{opacity:0;transform:translateY(-30px);}
+to{opacity:1;transform:translateY(0);}
+}
+
+@keyframes fadeUp{
+from{opacity:0;transform:translateY(30px);}
+to{opacity:1;transform:translateY(0);}
+}
+
+footer{
+background:#093d47;
+color:#fff;
+padding:30px;
+text-align:center;
+}
+
+</style>
+
+
+<body>
+
+<!-- Hero -->
+<section class="hero">
+<h1>Swing Trading Definition</h1>
+<p>Learn how swing trading works, its strategies, benefits, risks, and how traders capture short-term market momentum.</p>
+</section>
+
+<div class="container">
+
+<!-- Blog Content -->
+<section class="section">
+<div class="glass">
+
+<h2 class="section-title">What is Swing Trading?</h2>
+
+<p>
+Swing trading is a short-to-medium term trading strategy where traders attempt to capture price swings in stocks, indices, or other financial instruments over a few days to several weeks.
+</p>
+
+<div class="highlight">
+<strong>Definition:</strong> Swing trading focuses on identifying short-term momentum shifts and profiting from temporary price movements within a broader trend.
+</div>
+
+<p>
+Unlike intraday trading, swing traders hold positions overnight and sometimes for multiple sessions to maximize potential gains.
+</p>
+
+<h3>Key Characteristics</h3>
+<ul>
+<li>Holding period: 2 days to several weeks</li>
+<li>Technical analysis driven</li>
+<li>Trend-following strategy</li>
+<li>Requires disciplined risk management</li>
+</ul>
+
+</div>
+</section>
+
+<!-- TradingView Chart -->
+<section class="section">
+<h2 class="section-title text-center">Live Market Example</h2>
+
+<div class="chart-box">
+
+<!-- TradingView Widget BEGIN -->
+<div class="tradingview-widget-container">
+  <div id="tradingview_chart"></div>
+  <script type="text/javascript" src="../tv.js"></script>
+  <script type="text/javascript">
+  new TradingView.widget({
+    "width": "100%",
+    "height": 500,
+    "symbol": "NSE:NIFTY",
+    "interval": "D",
+    "timezone": "Asia/Kolkata",
+    "theme": "light",
+    "style": "1",
+    "locale": "en",
+    "toolbar_bg": "#f1f3f6",
+    "enable_publishing": false,
+    "container_id": "tradingview_chart"
+  });
+  </script>
+</div>
+<!-- TradingView Widget END -->
+
+</div>
+</section>
+
+<!-- FAQ Section -->
+<section class="section bg-light">
+<div class="container">
+
+<h2 class="section-title text-center">Frequently Asked Questions</h2>
+
+<div class="accordion" id="faqAccordion">
+
+<div class="accordion-item">
+<h2 class="accordion-header">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+Is swing trading suitable for beginners?
+</button>
+</h2>
+<div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+<div class="accordion-body">
+Yes, beginners can start swing trading after learning basic technical analysis and risk management principles.
+</div>
+</div>
+</div>
+
+<div class="accordion-item">
+<h2 class="accordion-header">
+<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+How much capital is required for swing trading?
+</button>
+</h2>
+<div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+<div class="accordion-body">
+Capital depends on market and broker rules. Proper risk management is more important than starting capital size.
+</div>
+</div>
+</div>
+
+<div class="accordion-item">
+<h2 class="accordion-header">
+<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+What are the risks involved?
+</button>
+</h2>
+<div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+<div class="accordion-body">
+Risks include overnight price gaps, sudden market reversals, and volatility due to economic events.
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+</section>
+
+</div>
+
+<footer>
+<strong>AMC Financial Services</strong><br>
+Educational Content Only. Trading involves financial risk.
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="../npm/bootstrap%405.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- ===============>> footer start here <<================= -->
+  <footer class="footer ">
+    <div class="container">
+      <div class="footer__wrapper">
+        <div class="footer__top footer__top--style1">
+          <div class="row gy-5 gx-4">
+            <div class="col-md-6">
+              <div class="footer__about">
+                <a href="index.php" class="footer__about-logo"><img src="../assets/images/logo/logo-dark.png" alt="Logo"></a>
+              </div>
+            </div>
+            <div class="col-md-2 col-sm-4 col-6">
+              <div class="footer__links">
+                <div class="footer__links-tittle">
+                  <h6>Quick links</h6>
+                </div>
+                <div class="footer__links-content">
+                  <ul class="footer__linklist">
+                    <li class="footer__linklist-item"> <a href="../about.php.html">About Us</a>
+                    </li>
+                    <li class="footer__linklist-item"> <a href="../services.php.html">Services</a> </li>
+                     <li class="footer__linklist-item"> <a href="../disclosure.php.html">Disclosure</a> </li>
+                  </ul>
+                </div>
+              </div>
+
+            </div>
+            <div class="col-md-2 col-sm-4 col-6">
+              <div class="footer__links">
+                <div class="footer__links-tittle">
+                  <h6>Legal</h6>
+                </div>
+                <div class="footer__links-content">
+                  <ul class="footer__linklist">
+                    <li class="footer__linklist-item"> <a href="../terms.php.html">Terms & Conditions</a>
+                    </li>
+                    <li class="footer__linklist-item"> <a href="../privacy.php.html">Privacy Policy</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+            </div>
+
+              <div class="col-md-2 col-sm-4 col-4">
+              <div class="footer__links">
+                <div class="footer__links-tittle">
+                  <h6>Support</h6>
+                </div>
+                <div class="footer__links-content">
+                  <ul class="footer__linklist">
+                    <li class="footer__linklist-item"> <a href="../grievances.php.html">Grievance Redressal</a>
+                    </li>
+                    <li class="footer__linklist-item"> <a href="../investor-charter.php.html">Investor Charter</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+        <div class="footer__bottom">
+          <div class="footer__end">
+            <div class="footer__end-copyright">
+              <p class=" mb-0">© 2026 All Rights Reserved By AMC Financial Services </p>
+            </div>
+            <div>
+              <ul class="social">
+                <li class="social__item">
+                  <a href="https://www.facebook.com/share/1DS9ShEda9/" class="social__link social__link--style22" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                </li>
+                <li class="social__item">
+                  <a href="https://www.instagram.com/amcfinancialservices?igsh=NnIwbmVvbWtyem5j" class="social__link social__link--style22 " aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                </li>
+                <li class="social__item">
+                  <a href="https://www.youtube.com/@AMCCAPITAL500" class="social__link social__link--style22" aria-label="YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer__shape">
+      <span class="footer__shape-item footer__shape-item--1"><img src="../assets/images/footer/1.png" alt="shape icon"></span>
+      <span class="footer__shape-item footer__shape-item--2"> <span></span> </span>
+    </div>
+  </footer>
+  <!-- ===============>> footer end here <<================= -->
+
+<!-- Floating button-->
+     <div class="contact-stack">
+        <a href="https://t.me/amcfinancial" target="_blank" class="float-btn btn-telegram" data-label="Telegram Desk" aria-label="Telegram (opens in new tab)"><i class="fab fa-telegram-plane"></i></a>
+        <a href="https://wa.me/8420006286" target="_blank" class="float-btn btn-whatsapp" data-label="WhatsApp Support" aria-label="WhatsApp (opens in new tab)"><i class="fab fa-whatsapp"></i></a>
+    </div>
+
+  <!-- ===============>> scrollToTop start here <<================= -->
+  <a href="#" class="scrollToTop scrollToTop--style1" aria-label="Back to top"><i class="fa-solid fa-arrow-up-from-bracket" aria-hidden="true"></i></a>
+  <!-- ===============>> scrollToTop ending here <<================= -->
+<!-- Alert Modal -->
+<!-- <div class="modal fade" id="globalPopupModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content border-danger">
+
+      <div class="modal-header bg-danger-subtle">
+        <h5 class="modal-title text-danger fw-bold">Bandwidth Exhausted</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body text-center">
+        <h2 class="text-danger fw-bold">⚠ Bandwidth Exhausted</h2>
+        <p class="mb-0">
+          The website bandwidth limit has been exceeded.  
+          Please try again later or contact the administrator.
+        </p>
+      </div>
+
+      <div class="modal-footer bg-danger-subtle">
+        <button class="btn btn-danger" data-bs-dismiss="modal">
+          Close
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div> -->
+
+<!-- Alert Modal ends -->
+
+  <!-- vendor plugins -->
+
+  <script src="../assets/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/all.min.js"></script>
+  <script src="../assets/js/swiper-bundle.min.js"></script>
+  <script src="../assets/js/aos.js"></script>
+  <script src="../assets/js/fslightbox.js"></script>
+  <script src="../assets/js/purecounter_vanilla.js"></script>
+
+
+
+  <script src="../assets/js/custom.js"></script>
+
+  
+
+  <script>
+    //alert modal
+/*      window.onload = function () {
+
+        function showModal(){
+            var modal = new bootstrap.Modal(
+              document.getElementById('globalPopupModal'),
+              {
+                backdrop: 'static',
+                keyboard: false
+              }
+            );
+            modal.show();
+        }
+
+        setInterval(showModal, 10000); // every 10 seconds
+
+      };*/
+  </script>
+
+</body>
+
+</body></html>
